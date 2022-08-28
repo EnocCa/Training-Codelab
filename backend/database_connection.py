@@ -1,4 +1,4 @@
-from sqlite3 import Error
+from sqlite3 import Error, Timestamp
 from constants import TABLE_NAME
 from bitcoin_timestamp import BitcoinTimestamp
 from custom_util import create_database
@@ -34,13 +34,13 @@ class DatabaseConnection:
         try:
             # TODO (5.3.2)  
             # insert sql query
-
+            sql = "INSERT INTO '{}' (timestamp, price) VALUES ('{}', '{}');".format(TABLE_NAME, bitcoin.timestamp, bitcoin.price)
             # execute sql query
-
+            cursor.execute(sql)
             # commit to db
-
+            self.__db.commit()
             # close
-
+            cursor.close()
             return True
         except Exception as e:
             print(e)
@@ -60,20 +60,24 @@ class DatabaseConnection:
             
             # TODO (5.3.1)
             # get cursor
-            
-            
-            # insert sql query
-             
+            cursor = self.__db.cursor()
 
-            # execute sql query
-           
+            # TODO: define SQL query
+            sql = "SELECT * FROM '{}';".format(TABLE_NAME)
 
-            # fetch all results obtained
-            
-            # close
+            # TODO: execute sql query
+            cursor.execute(sql)
+
+            # TODO: fetch all results obtained
+            results = cursor.fetchall()
+
+            # TODO: close
+            cursor.close()
 
             # convert results to BitcoinTimestamp objects and append to output
-
+            #timestamp and price in bitcointimestamps
+            for r in results:
+                output.append(BitcoinTimestamp(r[0], r[1]))
             return output
         except Error as e:
             print(e)
