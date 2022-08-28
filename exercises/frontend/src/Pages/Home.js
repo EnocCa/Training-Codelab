@@ -8,7 +8,8 @@ function Home () {
 
   //  excercise 9.3
   // set variables [message, setMessage] using hooks (useState) to "you choose 1"
-  
+  const [message,setMessage] = useState("You Choose 1");
+  useEffect(() =>{setMessage(chosen === "Button 1" ? "You Choose 1" : "You Choose 2")},[chosen])
 
   //  excercise 9.3 update message when chosen change ( set dependecy to chosen) 
   /* uncomment for excercise 9.3
@@ -22,10 +23,11 @@ function Home () {
   }
 
   return (
-      <div /* exercise 9.2 set classname to first box CSS*/>
-        <div /* exercise 9.2 set classname to second box CSS*/>
+      <div class={styles.bodyContainer}>
+        <div class={styles.innerBodyContainer}>
           {chosen}
-           {/* exercise 9.1 insert TestButton pass chosen and changeChosen ( pass by chosen={chosen})*/}
+          <TestButton chosen={chosen} changeChosen={changeChosen}/> 
+          {message}
           {/* uncomment for exercise 9.3 {message} */}
         </div>
       </div>

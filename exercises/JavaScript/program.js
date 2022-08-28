@@ -8,7 +8,7 @@ window.onload = function() {
 window.changeColorBlue = function() {
     body.style.backgroundColor = "#a8ceff";
 }
-// implement changeColorPurple
+// implement changeColorRed
 window.changeColorRed = function() {
     body.style.backgroundColor = "#ff0000";
 }

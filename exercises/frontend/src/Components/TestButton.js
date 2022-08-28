@@ -21,6 +21,12 @@ function TestButton ({chosen,changeChosen}) {
           onClick={()=>changeChosen("Button 2")} 
           /* uncomment for 9.2 className={chosen === 'Button 2' ? styles.currencyButtonActive : styles.currencyButtonDefault} */ 
           /*in the value */}
+      <button onClick={()=>changeChosen("Button 1")}
+          className={chosen === 'Button 1' ? styles.currencyButtonActive : styles.currencyButtonDefault} 
+          /*in the value */> Button 1 </button>
+      <button onClick={()=>changeChosen("Button 2")}  
+          className={chosen === 'Button 2' ? styles.currencyButtonActive : styles.currencyButtonDefault} 
+          /*in the value */> Button 2 </button>
     </div>         
   );
 
