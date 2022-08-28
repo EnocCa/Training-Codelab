@@ -12,12 +12,12 @@ def get_live_bitcoin_price():
     # check if respons status code is 200
     if response.status_code == 200:
 
-    # convert response body to JSON
+    # put the json into data and make it a price
         data = response.json()
         price = data['bpi']['USD']['rate'].replace(',','')
         return float(price)
 
-    # otherwise, print error code
+    # otherwise, error
     else:
         return -1
     """
