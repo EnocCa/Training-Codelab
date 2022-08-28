@@ -6,6 +6,20 @@ import requests
 
 # TODO (5.1) 
 def get_live_bitcoin_price():
+    # make get request
+    response = requests.get(BITCOIN_CURRENT_PRICE_URL)
+
+    # check if respons status code is 200
+    if response.status_code == 200:
+
+    # convert response body to JSON
+        data = response.json()
+        price = data['bpi']['USD']['rate'].replace(',','')
+        return float(price)
+
+    # otherwise, print error code
+    else:
+        return -1
     """
     gets live price of bitcoin from bitcoin open API
 
@@ -77,3 +91,4 @@ def convert_date_to_text(date: datetime):
 
 if __name__ == '__main__':
     create_database()
+    print(get_live_bitcoin_price())
