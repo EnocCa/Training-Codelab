@@ -57,7 +57,7 @@ async def get_bitcoin_prices():
     results = db.get_all_timestampes()
     output = []
     for r in results:
-        output.append(BitcoinTimestamp(r[0], r[1]).__dict__)
+        output.append(r.__dict__)
     return json.dumps(output)
 
 # main function to run the server
