@@ -1,5 +1,11 @@
 .bodyContainer{
+    min-height: positionabsolute;
+    background-color: #1d1d1d;
+    margin: 0px;
 }
 
 .bodyContainerMargin{
+    width: 100%;
+    height: 100%;
+    background-color: #1d1d1d;
 }

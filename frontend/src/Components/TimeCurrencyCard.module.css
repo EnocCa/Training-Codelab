@@ -1,14 +1,19 @@
 .cardContainer {
+    background-color: #0000FF;
 }
 
 .priceContainerUp {
+    color: green;
 }
 
 .priceContainerDown {
+    color: red;
 }
 
 .priceContainerEqual {
+    color: #db9452;
 }
 
 .timeContainer {
+    color: #bfd6ff;
 }
